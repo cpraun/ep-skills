@@ -1,0 +1,5 @@
+# Every feature is disclosed explicitly in a single embodiment (Fig. 1).
+# The gate checks a well-formed feature table + conclusion, and no Art. 56 drift.
+rule: "Step 5 conclusion — all features anticipated"
+expect_output: true
+must_refuse: false

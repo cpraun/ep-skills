@@ -1,0 +1,4 @@
+# M1–M3 disclosed, M4 (thermochromic indicator) absent → the distinguishing feature.
+rule: "Step 5 conclusion — one distinguishing feature confers novelty"
+expect_output: true
+must_refuse: false

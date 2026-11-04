@@ -1,0 +1,6 @@
+Add a file "template.docx" to this folder and customise it to your own needs
+(letterhead, fonts, styles, margins, headers and footers).
+
+The util-docx skill uses template.docx when it exists, otherwise template-sample.docx.
+template.docx is excluded from git (.gitignore), so it may contain firm- or
+user-specific content.

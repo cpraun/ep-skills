@@ -1,0 +1,67 @@
+#!/bin/sh
+# The plugin ships two identical manifests, because its two consumers disagree
+# on where the manifest lives:
+#
+#   ./plugin.json                 - Google Antigravity
+#   ./.claude-plugin/plugin.json  - Claude Code / Cowork
+#
+# Neither tool reads the other's copy, so a version bump applied to only one of
+# them diverges silently. This hook refuses such a commit.
+#
+# It also refuses a commit in which the working protocol of a skill differs
+# from rules/ep-skills.md. Each skills/*/SKILL.md carries a copy of it between
+# the protocol markers, because a skill cannot include a shared file.
+
+protocol() {
+    git show ":$1" 2>/dev/null | sed -n '/<!-- protocol:begin -->/,/<!-- protocol:end -->/p'
+}
+
+master=rules/ep-skills.md
+ref=$(protocol "$master")
+if [ -n "$ref" ]; then
+    bad=0
+    for f in $(git ls-files 'skills/*/SKILL.md'); do
+        if [ "$(protocol "$f")" != "$ref" ]; then
+            echo "pre-commit: the working protocol in $f differs from $master." >&2
+            bad=1
+        fi
+    done
+    if [ $bad -ne 0 ]; then
+        echo "Copy the block between the protocol markers from $master, restage, and commit again." >&2
+        exit 1
+    fi
+fi
+
+a=plugin.json
+b=.claude-plugin/plugin.json
+
+# Compare what is staged, not the working tree -- the index is what gets committed.
+staged_a=$(git show ":$a" 2>/dev/null); have_a=$?
+staged_b=$(git show ":$b" 2>/dev/null); have_b=$?
+
+if [ $have_a -ne 0 ] && [ $have_b -ne 0 ]; then
+    exit 0  # neither manifest is tracked yet; nothing to compare
+fi
+
+if [ $have_a -ne 0 ] || [ $have_b -ne 0 ]; then
+    missing=$a
+    [ $have_b -ne 0 ] && missing=$b
+    echo "pre-commit: $missing is missing from the index." >&2
+    echo "Both manifests must be tracked, or the plugin breaks for one of its two hosts." >&2
+    exit 1
+fi
+
+if [ "$staged_a" != "$staged_b" ]; then
+    echo "pre-commit: the two plugin manifests differ." >&2
+    echo >&2
+    tmp_a=$(mktemp) && tmp_b=$(mktemp) || exit 1
+    printf '%s\n' "$staged_a" >"$tmp_a"
+    printf '%s\n' "$staged_b" >"$tmp_b"
+    diff -u --label "$a" "$tmp_a" --label "$b" "$tmp_b" >&2
+    rm -f "$tmp_a" "$tmp_b"
+    echo >&2
+    echo "Copy one over the other, restage, and commit again." >&2
+    exit 1
+fi
+
+exit 0

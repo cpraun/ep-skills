@@ -1,0 +1,7 @@
+# The claim conflates a method ("a method of using ... comprising filling ...")
+# with an apparatus definition ("comprising a double-walled vessel, an outer wall,
+# and a thermochromic indicator") — a mixed-category claim, which must fall into a
+# single category. The gate checks a well-shaped assessment, in scope.
+rule: "§D Single category per claim — mixed method/apparatus claim"
+expect_output: true
+must_refuse: false

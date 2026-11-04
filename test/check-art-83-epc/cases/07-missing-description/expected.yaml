@@ -1,0 +1,7 @@
+# The description is mandatory for this skill — sufficiency cannot be assessed from
+# the claim alone. So the skill must ask for the description and must NOT produce a
+# sufficiency assessment: no assessment output may appear (expect_output false), and
+# it must ask for the description. This is check-83's signature input-discipline case.
+rule: "§Inputs to gather — claims but no description: ask, do not assess"
+expect_output: false
+must_refuse: false

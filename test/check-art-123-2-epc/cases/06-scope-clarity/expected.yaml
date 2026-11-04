@@ -1,0 +1,7 @@
+# The user bundles an out-of-scope Art. 84 clarity request with a valid Art. 123(2)
+# request. The skill must deliver the added-matter assessment AND refuse the
+# clarity part with its one-sentence out-of-scope response (pointing to
+# /check-art-84-epc), without silently performing the clarity analysis.
+rule: "§Out-of-scope handling — refuse Art. 84, still do Art. 123(2)"
+expect_output: true
+must_refuse: true

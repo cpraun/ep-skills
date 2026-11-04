@@ -1,0 +1,8 @@
+pytest>=7.0
+pyyaml>=6.0
+# Provider SDKs — only the one named by MODEL_PROVIDER is imported at runtime,
+# but both are installed so either provider works without a reinstall.
+google-genai>=0.3
+anthropic>=0.40
+# Used by the deterministic util-docx helper tests (test/util-docx/test_docx_helper.py)
+python-docx>=1.1

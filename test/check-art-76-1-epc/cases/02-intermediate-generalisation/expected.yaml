@@ -1,0 +1,8 @@
+# The silicone sealing ring is disclosed in the parent only within one embodiment,
+# tied to the polypropylene lid and the steel latch. Lifting the ring into the
+# broad divisional claim, dropping the tied features, is an intermediate
+# generalisation with no basis in the parent as filed. The gate checks a well-shaped
+# assessment (table + conclusion), in scope.
+rule: "§Step 4 Combination check — intermediate generalisation from a parent embodiment"
+expect_output: true
+must_refuse: false

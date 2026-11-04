@@ -1,0 +1,7 @@
+# "substantially", "thin", and "high" are relative terms with no reference point
+# in the claim — the classic Art. 84 clarity defect. The gate checks the skill
+# produces its clarity assessment and stays in scope; it does not grade the
+# severity assigned to each term.
+rule: "§Clarity — relative terms (Guidelines F-IV, 4.6)"
+expect_output: true
+must_refuse: false

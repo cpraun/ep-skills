@@ -1,0 +1,6 @@
+# Claim 2 depends on claim 3, a LATER claim — a forward reference. A claim may
+# refer only to a preceding claim (Rule 43(4) EPC). A clear formal dependency
+# defect. The gate checks a well-shaped assessment, in scope.
+rule: "§B Dependency references — forward reference to a later claim (Rule 43(4))"
+expect_output: true
+must_refuse: false

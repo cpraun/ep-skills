@@ -1,0 +1,8 @@
+# The claimed residual pressure (<=1e-9 mbar) is six orders of magnitude below
+# what the disclosed process reaches (~1e-3 mbar), with no teaching enabling the
+# claimed values — the skilled person cannot obtain values in the claimed range,
+# which is sufficiency (not mere unmeasurability / clarity). The gate checks a
+# well-shaped assessment, in scope.
+rule: "§assets/claim-types.md, parameter-based claims — claimed values unobtainable from the disclosure (T 593/09)"
+expect_output: true
+must_refuse: false

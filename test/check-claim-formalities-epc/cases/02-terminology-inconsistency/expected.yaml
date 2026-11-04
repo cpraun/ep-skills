@@ -1,0 +1,7 @@
+# The same element is called "the vessel" in claim 2 and "said receptacle" in
+# claim 3 — inconsistent terminology, and "said receptacle" also lacks an
+# antecedent (no prior "a receptacle"). A cross-claim formal defect. The gate
+# checks a well-shaped assessment, in scope.
+rule: "§A Terminology consistency — same element named inconsistently across claims"
+expect_output: true
+must_refuse: false

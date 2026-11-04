@@ -1,0 +1,8 @@
+# The reinforcing ribs are shown only in Figure 2 of the parent, not in the text.
+# A feature shown only in a drawing can provide basis if directly and unambiguously
+# derivable (T 169/83), but the skill must classify it as "Drawings only" and flag
+# it for the attorney rather than treating it as ordinary textual basis. The gate
+# checks a well-shaped assessment (table + conclusion), in scope.
+rule: "§Workflow step 3 — drawing-only basis, flagged (T 169/83)"
+expect_output: true
+must_refuse: false

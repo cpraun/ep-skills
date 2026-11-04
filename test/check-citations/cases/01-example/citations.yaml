@@ -1,0 +1,141 @@
+# Example case for the check-citations locator (fictitious documents only).
+#
+# Each entry is one citation as it might appear in a draft: the quoted text, the
+# source it is attributed to, and the location the draft cites. `expect` is what
+# the locator must report:
+#   verbatim          quote found at the cited location
+#   minor-divergence  only punctuation / case / spacing differ, at the cited location
+#   ellipsis          fragments around "..." / "…" / "[...]" found in order at the cited location
+#   wrong-location    quote is in the source, but not where cited
+#   not-found         quote is not in the source (e.g. altered wording, deleted text)
+#
+# `cited` is one of: {para: "[0010]"} | {claim: 2} | {page: 1} | {page: 1, lines: "2-5"};
+# omit it to only check that the quote exists. `found_at` (optional) pins where the
+# quote must actually be found: any of para, claim, page, line_start.
+
+# --- D1.pdf: text PDF -------------------------------------------------------------
+
+- id: d1-verbatim-paragraph
+  source: D1.pdf
+  quote: "a closure member (4) that is resiliently biased against a valve seat (6)"
+  cited: {para: "[0010]"}
+  expect: verbatim
+  found_at: {para: 10, page: 1, line_start: 2}
+
+- id: d1-word-hyphenated-at-line-end
+  source: D1.pdf
+  quote: "any element comprising a sealing surface"
+  cited: {para: "[0010]"}
+  expect: verbatim
+
+- id: d1-straight-quotes-for-curly-quotes
+  source: D1.pdf
+  quote: 'The term "closure member" denotes any element'
+  cited: {para: "[0010]"}
+  expect: verbatim
+
+- id: d1-paragraph-continues-on-next-page
+  source: D1.pdf
+  quote: "made of stainless steel. The spring (8) acts on the closure member (4)"
+  cited: {para: "[0011]"}
+  expect: verbatim
+  found_at: {para: 11, page: 1}
+
+- id: d1-quote-only-from-the-continuation-page
+  # Page 2 starts in the middle of [0011]; the paragraph number is only on page 1.
+  source: D1.pdf
+  quote: "acts on the closure member (4) with a force of between 5 N and 20 N"
+  cited: {para: "[0011]"}
+  expect: verbatim
+  found_at: {para: 11, page: 2}
+
+- id: d1-wrong-paragraph
+  source: D1.pdf
+  quote: "the closure member (4) is made of a fluoropolymer"
+  cited: {para: "[0012]"}
+  expect: wrong-location
+  found_at: {para: 11}
+
+- id: d1-page-and-lines-correct
+  source: D1.pdf
+  quote: "The valve seat (6) is integrally formed with the housing (2)."
+  cited: {page: 2, lines: "3"}
+  expect: verbatim
+
+- id: d1-page-correct-lines-wrong
+  source: D1.pdf
+  quote: "The valve seat (6) is integrally formed with the housing (2)."
+  cited: {page: 2, lines: "7-9"}
+  expect: wrong-location
+
+- id: d1-claim
+  source: D1.pdf
+  quote: "wherein the closure member (4) is made of a fluoropolymer"
+  cited: {claim: 2}
+  expect: verbatim
+
+- id: d1-punctuation-and-case-differ
+  source: D1.pdf
+  quote: "In a preferred embodiment the Closure Member (4) is made of a fluoropolymer"
+  cited: {para: "[0011]"}
+  expect: minor-divergence
+
+- id: d1-ellipsis
+  source: D1.pdf
+  quote: "A valve assembly is disclosed […] that is resiliently biased against a valve seat"
+  cited: {para: "[0010]"}
+  expect: ellipsis
+
+- id: d1-altered-numeral
+  source: D1.pdf
+  quote: "with a force of between 5 N and 25 N"
+  cited: {para: "[0011]"}
+  expect: not-found
+
+# --- D1-scanned.pdf: the same document, image only (OCR) ---------------------------
+
+- id: d1-scanned-verbatim-via-ocr
+  source: D1-scanned.pdf
+  quote: "The valve seat (6) is integrally formed with the housing (2)."
+  cited: {para: "[0012]"}
+  expect: verbatim
+  found_at: {page: 2}
+
+- id: d1-scanned-dash-variant
+  source: D1-scanned.pdf
+  quote: "FICTITIOUS EXAMPLE D1 – for testing only"
+  cited: {page: 1, lines: "1"}
+  expect: verbatim
+
+# --- Description.docx: Word file with tracked changes ------------------------------
+
+- id: docx-verbatim-paragraph
+  source: Description.docx
+  quote: "The gateway compares the load value with a threshold value (T)"
+  cited: {para: "[0005]"}
+  expect: verbatim
+
+- id: docx-inserted-text-counts
+  source: Description.docx
+  quote: "transmitting the load value (L) to the gateway (20) via a wireless link"
+  cited: {claim: 1}
+  expect: verbatim
+
+- id: docx-deleted-text-is-not-there
+  source: Description.docx
+  quote: "exclusively via a wired backbone"
+  cited: {claim: 1}
+  expect: not-found
+
+- id: docx-wrong-claim
+  source: Description.docx
+  quote: "is reduced as the remaining battery capacity (B) decreases"
+  cited: {claim: 3}
+  expect: wrong-location
+  found_at: {claim: 2}
+
+- id: docx-page-cannot-be-checked-in-word
+  source: Description.docx
+  quote: "Wireless sensor networks comprise a large number of battery-powered sensor nodes"
+  cited: {page: 1}
+  expect: verbatim

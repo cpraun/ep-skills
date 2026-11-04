@@ -1,0 +1,4 @@
+# Exclude local secrets from Google AI context (Gemini Code Assist / Antigravity).
+# Uses .gitignore syntax. Keeps API keys out of anything sent to the model.
+test/env.sh
+**/env.sh

@@ -1,0 +1,5 @@
+# Only a bibliographic reference for D1, no text. The skill must ask for the D1
+# text and must NOT invent D1's contents or produce a feature table.
+rule: "§inputs to gather — D1 is only a citation: ask, do not fabricate"
+expect_output: false
+must_refuse: false

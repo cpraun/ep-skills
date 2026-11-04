@@ -1,0 +1,8 @@
+# A narrow claim tied to a fully worked example (materials, dimensions, process) —
+# the skilled person can carry it out without undue burden, so the expected finding
+# is "No sufficiency issues identified". This also checks the skill does not
+# over-object to a well-enabled claim. The gate accepts the no-issues line as valid
+# structure (there need be no issue table).
+rule: "§Output format — narrow, fully-exemplified claim: no issues identified"
+expect_output: true
+must_refuse: false

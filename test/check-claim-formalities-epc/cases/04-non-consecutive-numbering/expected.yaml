@@ -1,0 +1,6 @@
+# The claims are numbered 1, 2, 4 — a gap at 3. Claims must be numbered
+# consecutively in Arabic numerals (Rule 43(5) EPC). The gate checks a well-shaped
+# assessment, in scope.
+rule: "§B Numbering — non-consecutive claim numbering (Rule 43(5))"
+expect_output: true
+must_refuse: false

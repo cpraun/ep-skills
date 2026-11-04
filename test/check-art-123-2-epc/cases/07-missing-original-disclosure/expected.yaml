@@ -1,0 +1,9 @@
+# The amendment is given but the application as originally filed is not. Per the
+# skill's error handling it may go only as far as a PROVISIONAL assessment
+# (Finding: UNCERTAIN) and must state that the original disclosure is needed to
+# complete it — it must not invent a basis. So: a finding is still produced
+# (expect_output), AND the output must ask for the original disclosure (must_ask).
+rule: "§Inputs to gather — amendment but no original disclosure: provisional + ask"
+expect_output: true
+must_ask: true
+must_refuse: false

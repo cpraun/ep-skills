@@ -1,0 +1,7 @@
+# "the lid" and "the drinking aperture" are referred to with the definite article
+# but never introduced with "a" — a missing antecedent basis, the signature formal
+# defect. The gate checks the skill produced its formalities assessment and stayed
+# in scope; it does not grade which of the two it flags.
+rule: "§A Antecedent basis — definite reference with no prior introduction"
+expect_output: true
+must_refuse: false

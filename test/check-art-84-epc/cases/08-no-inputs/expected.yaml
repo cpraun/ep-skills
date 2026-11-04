@@ -1,0 +1,6 @@
+# No claim text is provided. The skill must ask for the claim(s) and must NOT
+# fabricate an assessment — so no clarity-assessment output may appear
+# (expect_output false), and it must ask.
+rule: "§Inputs to gather — no inputs at all: ask, do not fabricate"
+expect_output: false
+must_refuse: false

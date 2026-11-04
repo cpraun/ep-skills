@@ -1,0 +1,8 @@
+# A new document from scratch must start from the template (template.docx, else
+# template-sample.docx), not from a blank docx.Document() — that would discard the
+# template's fonts, margins and headers.
+rule: "§1 Creating a new file from scratch — template order"
+expect_output: true
+must_refuse: false
+forbidden:
+  - "docx.Document()"

@@ -1,0 +1,9 @@
+# M1-M3 live only in embodiment 1 (travel mug); M4 only in embodiment 2 (paper
+# cup), with no pointer linking them. The gate guards against a conclusion that
+# leans on combining the two embodiments — the §no-mosaicking failure mode.
+rule: "§no mosaicking — separate embodiments may not be combined without a pointer"
+expect_output: true
+must_refuse: false
+forbidden:
+  - "combining the two embodiments"
+  - "combining both embodiments"

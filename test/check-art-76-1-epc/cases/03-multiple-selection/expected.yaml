@@ -1,0 +1,8 @@
+# The divisional claim picks one item from the parent's material list and one from
+# its coating list, with no pointer in the parent to that specific pairing — a
+# multiple independent selection creating a combination not derivable from the
+# parent as filed (T 727/00). The gate checks a well-shaped assessment (table +
+# conclusion), in scope.
+rule: "§Step 4 Combination check — multiple independent selections from parent lists (T 727/00)"
+expect_output: true
+must_refuse: false

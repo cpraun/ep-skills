@@ -1,0 +1,6 @@
+# No file named, no description of what "wrong" means. The skill must ask for the
+# document (and what to change) rather than write speculative code against an
+# invented file.
+rule: "Input discipline — do not invent the document"
+expect_output: false
+must_refuse: false

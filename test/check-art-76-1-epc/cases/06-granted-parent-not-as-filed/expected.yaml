@@ -1,0 +1,8 @@
+# The user supplied the GRANTED parent (B1, amended during examination), but
+# Art. 76(1) basis is the earlier application AS FILED. The skill must stop and ask
+# for the as-filed text rather than proceeding on the granted patent — so no basis
+# assessment may appear (expect_output false), and it must ask for the as-filed
+# parent. This is check-76-1's signature input-discipline case.
+rule: "§Inputs to gather — granted patent supplied: ask for the parent as filed, do not assess"
+expect_output: false
+must_refuse: false

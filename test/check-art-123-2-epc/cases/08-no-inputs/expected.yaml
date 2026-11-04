@@ -1,0 +1,6 @@
+# Neither the amendment/feature nor the application as originally filed is
+# provided. The skill must ask for both and must NOT fabricate an assessment —
+# so no finding verdict may appear (expect_output false), and it must ask.
+rule: "§Inputs to gather — no inputs at all: ask, do not fabricate"
+expect_output: false
+must_refuse: false

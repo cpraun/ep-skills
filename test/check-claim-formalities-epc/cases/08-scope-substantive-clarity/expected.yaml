@@ -1,0 +1,8 @@
+# The user bundles an out-of-scope substantive-clarity question (is "substantially"
+# too vague under Art. 84?) with a valid formalities request. The skill must deliver
+# the formalities assessment ("the lid" and "the aperture" lack an antecedent) AND
+# refuse the substantive-clarity part with its one-sentence out-of-scope response
+# (pointing to /check-art-84-epc), without assessing whether "substantially" is vague.
+rule: "§Out-of-scope handling — refuse substantive clarity (Art. 84), still do formalities"
+expect_output: true
+must_refuse: true

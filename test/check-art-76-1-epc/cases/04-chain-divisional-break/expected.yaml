@@ -1,0 +1,8 @@
+# The thermochromic-indicator combination has basis in the immediate parent D1 as
+# filed ([0015]) but NOT in the root application P as filed (no indicator anywhere).
+# Under G 1/05 / G 1/06 basis must exist in EACH earlier application; the break at
+# the root is fatal, so D2 does not comply. This is the distinctive Art. 76(1)
+# chain check. The gate checks a well-shaped assessment (table + conclusion), in scope.
+rule: "§Workflow step 4, chain divisionals — basis must hold against each earlier application (G 1/05, G 1/06)"
+expect_output: true
+must_refuse: false

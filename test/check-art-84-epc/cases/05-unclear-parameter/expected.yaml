@@ -1,0 +1,6 @@
+# "hardness of at least 6" gives no scale or measurement method (Mohs? Vickers?),
+# and different methods yield different results — an unclear parameter under
+# Art. 84. The gate checks a well-shaped assessment, in scope.
+rule: "§Clarity — parameters without a measurement method (F-IV, 4.11; T 1845/14)"
+expect_output: true
+must_refuse: false

@@ -1,0 +1,8 @@
+# The claim turns on a technical effect (>=50 % heat-loss reduction by compound X),
+# asserted with no data or mechanism — so G 2/21 plausibility is engaged, and bare
+# assertion at filing is not enough. Because a technical effect IS relied on, the
+# skill should invoke G 2/21 here (unlike claims with no asserted effect). The gate
+# checks a well-shaped assessment, in scope.
+rule: "§assets/claim-types.md, plausibility (G 2/21) — technical effect asserted without support"
+expect_output: true
+must_refuse: false
