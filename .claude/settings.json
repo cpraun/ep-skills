@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./test/env.sh)",
+      "Read(**/env.sh)"
+    ]
+  },
+  "sandbox": {
+    "filesystem": {
+      "denyRead": [
+        "./test/env.sh"
+      ]
+    }
+  }
+}

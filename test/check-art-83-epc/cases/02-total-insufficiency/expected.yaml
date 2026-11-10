@@ -1,0 +1,7 @@
+# "maintain the temperature indefinitely without external energy" cannot be
+# carried out by the disclosed conventional vacuum insulation (or by anything) —
+# no embodiment within the claim can be realised, so it is a total insufficiency,
+# not merely a whole-scope one. The gate checks a well-shaped assessment, in scope.
+rule: "§Legal standard, total insufficiency — cannot carry out even one embodiment (total insufficiency)"
+expect_output: true
+must_refuse: false

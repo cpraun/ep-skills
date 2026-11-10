@@ -1,0 +1,7 @@
+# A claim defined only by a function ("coating that inhibits condensation") with no
+# guidance for identifying members satisfying it — the skilled person is left to a
+# research programme, an undue burden (T 435/91). The gate checks a well-shaped
+# assessment, in scope.
+rule: "§assets/claim-types.md, functional and reach-through claims — undue burden (T 435/91)"
+expect_output: true
+must_refuse: false

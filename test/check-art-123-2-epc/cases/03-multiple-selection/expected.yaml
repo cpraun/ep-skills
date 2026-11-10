@@ -1,0 +1,7 @@
+# The claim combines one item from the material list with one item from the
+# coating list, with no pointer in the application to that specific pairing — a
+# multiple (double) selection creating an undisclosed combination. The gate checks
+# a finding is reached and in scope.
+rule: "Taxonomy D — multiple independent selections from lists (T 727/00)"
+expect_output: true
+must_refuse: false

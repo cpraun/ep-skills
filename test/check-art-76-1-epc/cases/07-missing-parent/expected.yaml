@@ -1,0 +1,7 @@
+# The divisional claim is given but the earlier (parent) application as filed is
+# not. No Art. 76(1) assessment is possible without it, so the skill must ask for
+# the parent as filed and must NOT fabricate a basis assessment: no assessment
+# output may appear (expect_output false), and it must ask.
+rule: "§Inputs to gather — divisional claim but no parent: ask, do not assess"
+expect_output: false
+must_refuse: false

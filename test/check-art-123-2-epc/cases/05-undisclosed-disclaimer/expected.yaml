@@ -1,0 +1,7 @@
+# Copper is nowhere in the application, so the disclaimer is undisclosed; with no
+# novelty-restoring or Art. 53 purpose it falls outside the G 1/03 / G 2/03
+# conditions. The skill must branch to the undisclosed-disclaimer test, not the
+# G 2/10 disclosed-disclaimer test. The gate checks a finding is reached in scope.
+rule: "Taxonomy G — undisclosed disclaimer (G 1/03 / G 2/03 conditions)"
+expect_output: true
+must_refuse: false

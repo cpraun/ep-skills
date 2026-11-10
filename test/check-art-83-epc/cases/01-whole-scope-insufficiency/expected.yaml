@@ -1,0 +1,7 @@
+# The claim covers "any thermally insulating polymer" but the description enables
+# only PTFE, with no guidance for the rest of the class — enabled for a subset,
+# not across the whole scope (T 409/91). The gate checks a well-shaped sufficiency
+# assessment, in scope; it does not grade the severity.
+rule: "§Legal standard, whole-scope insufficiency — broad class enabled only for a subset (T 409/91)"
+expect_output: true
+must_refuse: false

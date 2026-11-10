@@ -1,0 +1,19 @@
+.DS_Store
+
+# Python bytecode caches and test/venv artifacts (from the test harness)
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Local secrets for the test harness — holds the Gemini API key, never commit
+test/env.sh
+
+# User-specific Word template of the handle-docx skill (see skills/util/handle-docx/assets/CUSTOMIZE.txt)
+skills/util/handle-docx/assets/template.docx
+
+# Learned rules are personal to each user and may contain case details; built locally via /learn
+skills/**/LEARNED.md
+
+# Local citation test cases with real case material (see test/verify-citations/cases/README.md)
+test/verify-citations/cases/local-*/

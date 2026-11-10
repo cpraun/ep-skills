@@ -1,0 +1,6 @@
+# A trade mark ("Teflon®") is unclear under Art. 84: it identifies commercial
+# origin and its meaning may change over time, rather than defining technical
+# content. The gate checks a well-shaped assessment, in scope.
+rule: "§Clarity — trade marks (Guidelines F-IV, 4.8)"
+expect_output: true
+must_refuse: false

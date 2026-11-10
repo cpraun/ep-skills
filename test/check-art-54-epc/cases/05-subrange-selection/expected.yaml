@@ -1,0 +1,5 @@
+# Sub-range 62–63 °C out of a known 40–90 °C range, with a worked example at
+# 62.5 °C falling inside the claimed sub-range.
+rule: "§selection inventions — sub-range test T 261/15"
+expect_output: true
+must_refuse: false

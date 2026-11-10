@@ -1,0 +1,7 @@
+# The divisional claim 1 corresponds verbatim to claim 1 of the parent as filed —
+# both the individual features and the combination are directly and unambiguously
+# derivable, so it complies. The gate checks a well-shaped basis assessment (table
+# + conclusion), in scope; it does not grade the verdict.
+rule: "§Combination check / Conclusion — verbatim basis in the parent as filed"
+expect_output: true
+must_refuse: false

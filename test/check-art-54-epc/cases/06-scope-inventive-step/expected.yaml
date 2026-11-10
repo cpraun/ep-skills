@@ -1,0 +1,6 @@
+# The user bundles an out-of-scope Art. 56 request with a valid novelty request.
+# The skill must still do the novelty assessment AND refuse the inventive-step
+# part with its one-sentence out-of-scope response, without Art. 56 drift.
+rule: "§out-of-scope handling — refuse Art. 56, still do Art. 54"
+expect_output: true
+must_refuse: true

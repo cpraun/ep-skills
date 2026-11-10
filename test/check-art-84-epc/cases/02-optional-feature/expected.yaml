@@ -1,0 +1,6 @@
+# "preferably" and "optionally" inside an independent claim make its scope
+# ambiguous — is the feature required or not. Typical Art. 84 optional-feature
+# defect. The gate checks a well-shaped assessment, in scope.
+rule: "§Clarity — optional features in a claim (Guidelines F-IV, 4.9)"
+expect_output: true
+must_refuse: false

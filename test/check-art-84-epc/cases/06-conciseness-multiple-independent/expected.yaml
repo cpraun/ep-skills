@@ -1,0 +1,6 @@
+# Two independent claims of the same category (beverage container), outside the
+# Rule 43(2)(a)-(c) exceptions — a conciseness / Rule 43(2) issue that belongs in
+# the cross-claim section. Multiple claims, so the cross-claim check applies.
+rule: "§Conciseness — multiple independent claims of one category (Rule 43(2))"
+expect_output: true
+must_refuse: false

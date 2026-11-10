@@ -1,0 +1,6 @@
+# The placeholder is split over two differently formatted runs and also sits in the
+# header. The skill must replace it run-aware (never via paragraph.text, which wipes
+# run formatting — drift list) and must reach the header, not only the body.
+rule: "Guiding principle + §2 Run-level editing; comprehensive traversal incl. headers"
+expect_output: true
+must_refuse: false

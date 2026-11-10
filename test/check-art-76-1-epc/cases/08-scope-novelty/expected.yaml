@@ -1,0 +1,8 @@
+# The user bundles an out-of-scope novelty request (Art. 54 over D1) with a valid
+# Art. 76(1) basis request. The skill must deliver the basis assessment (the claim
+# has verbatim basis in the parent as filed) AND refuse the novelty part with its
+# one-sentence out-of-scope response (pointing to /check-art-54-epc), without
+# performing the novelty analysis.
+rule: "§Out-of-scope handling — refuse Art. 54 novelty, still do Art. 76(1)"
+expect_output: true
+must_refuse: true

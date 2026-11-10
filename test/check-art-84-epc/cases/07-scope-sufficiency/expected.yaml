@@ -1,0 +1,8 @@
+# The user bundles an out-of-scope Art. 83 sufficiency request with a valid
+# Art. 84 clarity request. The skill must deliver the clarity assessment
+# ("substantially" is a relative term) AND refuse the sufficiency part with its
+# one-sentence out-of-scope response (pointing to /check-art-83-epc), without
+# performing the sufficiency analysis.
+rule: "§Out-of-scope handling — refuse Art. 83, still do Art. 84"
+expect_output: true
+must_refuse: true

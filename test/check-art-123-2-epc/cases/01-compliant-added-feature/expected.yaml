@@ -1,0 +1,6 @@
+# A single, complete selection of one item ("titanium") from a short closed list
+# explicitly disclosed as outer-wall materials — a clean basis. The gate checks
+# that the skill reaches a finding (verdict present) and stays in scope.
+rule: "Taxonomy D / Step 5 — single-list selection with explicit basis"
+expect_output: true
+must_refuse: false

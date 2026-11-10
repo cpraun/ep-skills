@@ -1,0 +1,6 @@
+# Claim 1 is novel (M4 absent); claim 2 depends on it. The skill should not
+# rebuild a full feature table for the dependent claim. The gate checks a
+# well-formed table and no Art. 56 drift.
+rule: "Step 6 — parent novel => dependent automatically novel, stated briefly"
+expect_output: true
+must_refuse: false

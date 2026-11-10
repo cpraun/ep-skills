@@ -1,0 +1,5 @@
+# "vacuum flask body" implicitly discloses the double wall and the vacuum to the
+# skilled person, even though the literal words are absent.
+rule: "§legal standard — implicit disclosure is narrow but real (G 2/88)"
+expect_output: true
+must_refuse: false

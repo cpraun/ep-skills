@@ -1,0 +1,10 @@
+# The silicone ring is disclosed only within a single embodiment, presented as a
+# functionally cooperating unit with the polypropylene lid and steel latch. Lifting
+# the ring alone into the broad claim, dropping the tied features, is the classic
+# Zwischenverallgemeinerung. The gate checks a finding is reached and in scope; the
+# forbidden phrase guards against waving the omission through as obviously fine.
+rule: "Taxonomy C — intermediate generalisation (functional inseparability test)"
+expect_output: true
+must_refuse: false
+forbidden:
+  - "obviously separable"

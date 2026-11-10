@@ -1,0 +1,6 @@
+# The claim is defined by the result to be achieved ("keep a beverage hot for a
+# prolonged period") without the structural features that would let the skilled
+# person determine its scope. Art. 84 result-to-be-achieved defect.
+rule: "§Clarity — result-to-be-achieved (Guidelines F-IV, 4.10)"
+expect_output: true
+must_refuse: false
