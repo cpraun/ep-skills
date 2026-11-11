@@ -29,7 +29,7 @@ If the user asks for any of these, deliver the formalities assessment first, the
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me check-claim-formalities-epc` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me check-claim-formalities-epc` first.
 
 1. **The claim set** — required; assessed as a set. If no claims are given, ask for them and stop; never fabricate a claim set. If only a publication number is given, ask for the claim text and do not search the web unless the user explicitly authorises it. If several claim sets are given, ask which one to use.
 2. **Whether the application has drawings** — needed only for the reference-sign check. If unknown, do not ask; perform that check conditionally and flag "verify against the drawings".

@@ -29,7 +29,7 @@ If the user asks for any of these, deliver the novelty assessment first, then an
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me check-art-54-epc` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me check-art-54-epc` first.
 
 1. **The claim(s) to be assessed.** Process exactly the claims named, including dependent claims if listed. If only "claim 1" is named, do only claim 1.
 2. **The text of D1.** If the user gives only a citation (e.g., "EP 1 234 567 A1"), ask for the document or the relevant passages. Do not search the web for D1 unless the user explicitly authorises it. If several documents are supplied, ask which one is D1; do not run several analyses without confirmation.

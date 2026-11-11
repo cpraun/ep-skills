@@ -32,7 +32,7 @@ If the user asks for any of these, deliver the draft first, then answer the out-
 
 ## Inputs
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me draft-oa-response` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me draft-oa-response` first.
 
 1. **The strategy — required, resolve it first.** It may be a reference to a strategy in the conversation (e.g., "main request + auxiliary request 2 from the strategy report"), pasted text, or a file path. If none is given, stop and ask which strategy to implement; never invent one. If a reference matches nothing or several candidates, list them and ask.
 2. **From the project directory** (filenames, case-insensitive: `OA`/`EESR`, `description`, `claims`, `drawing(s)`, `D1`, `D2`, …):

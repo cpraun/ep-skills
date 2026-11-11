@@ -29,7 +29,7 @@ If the user asks for any of these, deliver the basis assessment first, then answ
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me check-art-76-1-epc` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me check-art-76-1-epc` first.
 
 1. **The divisional claim(s)** — process exactly the claims named.
 2. **The earlier application as filed** (description, claims, drawings). Without it, no assessment is possible: ask for it and do not assess. If the user supplies the **granted patent** or a later amended version of the parent, stop and ask for the application as filed; do not assess on the granted text. A published A-document is acceptable if it corresponds to the parent as filed.

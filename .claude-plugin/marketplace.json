@@ -5,8 +5,7 @@
   "plugins": [
     {
       "name": "ep-skills",
-      "source": "./",
-      "description": "EP Skills — Assistant tools for European patent attorneys: Office Action analysis and response drafting, EPC checks (Art. 54, 76(1), 83, 84, 123(2), claim formalities, pre-filing), claim reduction and dependencies, deadlines, EN→DE translation, PDF/Word handling, and EPO examiner simulation."
+      "source": "./"
     }
   ]
 }

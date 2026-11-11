@@ -36,7 +36,7 @@ Deliver the suggestion table first; then, for any of the following, state in one
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me suggest-claim-reduction` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me suggest-claim-reduction` first.
 
 1. **The claim set** as it stands for European phase entry. Required.
 2. **The application as filed** (description, claims, drawings). Recommended. Needed if the current claims differ from the claims as filed (e.g. Art. 19 PCT amendments) and for any re-pointing under rule 5. Without it, suggest only combinations that need no re-pointing and state that the claims are assumed to be the claims as filed.

@@ -31,7 +31,7 @@ If the user asks for any of these, deliver the defect report first, then answer 
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me verify-en-de-translation` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me verify-en-de-translation` first.
 
 - **English source** and **German target** — given as paths, pasted text or attachments, or found in the project directory (filenames containing `english`, `EN`, `_en`, `-en`, `source` / `german`, `deutsch`, `DE`, `_de`, `-de`, `target`; otherwise tell them apart by content). If one is missing, ask for it and stop.
 - If the target is not German, say the skill is EN→DE only and stop.

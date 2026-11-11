@@ -11,22 +11,7 @@ gate confirms the skill produced its formalities assessment and stayed in scope
 every individual defect was spotted — that stays with the reviewing attorney.
 """
 
-import pytest
-
-from runner import generate
-from gates import run_gates
-from skilltest import (
-    skill_dir_for,
-    read_skill_body,
-    discover_cases,
-    load_input,
-    load_expected,
-    show_output,
-)
-
-SKILL_DIR = skill_dir_for(__file__)   # -> <repo>/skills/claims/check-claim-formalities-epc
-CASES = discover_cases(__file__)
-CASE_IDS = [c.name for c in CASES]
+from skilltest import gate_test
 
 # Skill-specific gate configuration (see gates.run_gates).
 GATE_PROFILE = {
@@ -45,10 +30,4 @@ GATE_PROFILE = {
     "drift": [],
 }
 
-
-@pytest.mark.parametrize("case", CASES, ids=CASE_IDS)
-def test_gates(case, request):
-    out = generate(read_skill_body(SKILL_DIR), load_input(case))
-    show_output(request, case.name, out)
-    failures = run_gates(out, load_expected(case), GATE_PROFILE)
-    assert not failures, "gate failures:\n  - " + "\n  - ".join(failures)
+test_gates = gate_test(__file__, GATE_PROFILE)

@@ -32,7 +32,7 @@ If the user asks for any of these, deliver the analysis first, then state: *"Tha
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me analyze-oa` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me analyze-oa` first.
 
 Work from the project directory and anything the user pastes. Filenames (case-insensitive): `OA`, `EESR`, `summons`; `description`; `claims`; `drawing(s)`; cited documents starting with `D1`, `D2`, ….
 

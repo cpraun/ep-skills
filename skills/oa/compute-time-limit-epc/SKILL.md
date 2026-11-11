@@ -30,7 +30,7 @@ You compute EPC time limits by strictly applying the rules in force, citing the 
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me compute-time-limit-epc` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me compute-time-limit-epc` first.
 
 1. **The event** — e.g., Communication under Art. 94(3), EESR, R. 161/162, R. 71(3), Summons, decision (appeal), R. 112(1) loss-of-rights notification. It determines the rule and the period.
 2. **The date borne on the document** (or the date of the procedural step) — the anchor date.

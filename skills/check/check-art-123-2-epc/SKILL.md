@@ -5,7 +5,6 @@ description: >-
   subject-matter under Art. 123(2) EPC (Gold Standard: directly and
   unambiguously disclosed). Use for any added-matter, basis, or
   Zwischenverallgemeinerung check. Not Art. 84/54/56/76.
-version: "1.0"
 ---
 
 # Art. 123(2) EPC — Added-Matter Assessment Skill
@@ -30,7 +29,7 @@ If the user asks for any of these, deliver the Art. 123(2) assessment first, the
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me check-art-123-2-epc` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me check-art-123-2-epc` first.
 
 - **The claim, amendment or feature under examination** — required. If the input starts with an `@filename` reference, the claim or feature is the text that follows it. If no amendment is given, ask for it.
 - **The application as originally filed** (description, claims, drawings) — required for a definitive finding. Sources, in this order: a document referenced via `@filename`; the application most recently shared in the conversation; a file in the project directory matching `description`, `claims` or `application`. If it is missing, give at most a provisional analysis, state that the finding is UNCERTAIN, and name the passages needed to complete it.

@@ -2,10 +2,9 @@
 """
 List the skills and agents of this library with their frontmatter properties.
 
-Reads every <skills-dir>/*/SKILL.md and <skills-dir>/*/*/SKILL.md (skills in a group
-folder such as util/) next to this skill and every
-<plugin-root>/agents/*.md, so the listing is always current. Standard
-library only.
+Reads every <skills-dir>/<group>/<name>/SKILL.md (skills sit in group folders such
+as util/) and every <plugin-root>/agents/*.md, so the listing is always current.
+Standard library only.
 
 Usage:
     list_skills.py            # tables of all skills and agents
@@ -41,8 +40,7 @@ def frontmatter(text):
 
 
 def skills():
-    found = [*SKILLS_DIR.glob("*/SKILL.md"), *SKILLS_DIR.glob("*/*/SKILL.md")]
-    for p in sorted(found, key=lambda p: p.parent.name):
+    for p in sorted(SKILLS_DIR.glob("*/*/SKILL.md"), key=lambda p: p.parent.name):
         fm = frontmatter(p.read_text(encoding="utf-8"))
         name = fm.get("name", p.parent.name)
         learned = LEARNED_DIR / f"{name}.md"

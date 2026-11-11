@@ -1,20 +1,23 @@
 """Shared helpers for per-skill test suites.
 
 Importable from any skill's test file because pytest.ini sets `pythonpath = .`
-(test/ is the rootdir). Keeping discovery and skill-loading here means the six
-check-skill test files stay a few lines each and cannot drift apart.
+(test/ is the rootdir). Keeping discovery, skill-loading and the eval test itself (gate_test) here means
+a suite's test file holds only its gate profile, and the suites cannot drift apart.
 """
 
 import pathlib
 
+import pytest
 import yaml
+
+from gates import run_gates
+from runner import generate
 
 
 def skill_dir_for(test_file):
-    """The skills/<name>/ directory a suite tests, derived from the suite's folder.
+    """The skill directory a suite tests, derived from the suite's folder.
 
-        test/<name>/test_<name>.py  ->  <repo-root>/skills/<name>/
-                                    or  <repo-root>/skills/<group>/<name>/
+        test/<name>/test_<name>.py  ->  <repo-root>/skills/<group>/<name>/
 
     Keeps every per-skill test file free of hard-coded paths: it names the skill
     by the folder it lives in.
@@ -22,10 +25,7 @@ def skill_dir_for(test_file):
     p = pathlib.Path(test_file).resolve()
     name = p.parent.name          # test/<name>/
     repo_root = p.parents[2]      # test/<name>/file -> [0]=<name> [1]=test [2]=root
-    skills = repo_root / "skills"
-    if (skills / name).is_dir():
-        return skills / name
-    return next(skills.glob(f"*/{name}"))   # skill inside a group folder, e.g. skills/util/read-pdf
+    return next((repo_root / "skills").glob(f"*/{name}"))   # e.g. skills/util/read-pdf
 
 
 def read_skill_body(skill_dir):
@@ -85,3 +85,22 @@ def show_output(request, name, output):
         print(text)
     finally:
         capman.resume_global_capture()
+
+
+def gate_test(test_file, profile):
+    """Build a suite's eval test: one model call per scenario under cases/, graded
+    by gates.run_gates with the suite's profile. A suite's test file needs only
+
+        test_gates = gate_test(__file__, GATE_PROFILE)
+    """
+    skill_dir = skill_dir_for(test_file)
+    cases = discover_cases(test_file)
+
+    @pytest.mark.parametrize("case", cases, ids=[c.name for c in cases])
+    def test_gates(case, request):
+        out = generate(read_skill_body(skill_dir), load_input(case))
+        show_output(request, case.name, out)
+        failures = run_gates(out, load_expected(case), profile)
+        assert not failures, "gate failures:\n  - " + "\n  - ".join(failures)
+
+    return test_gates

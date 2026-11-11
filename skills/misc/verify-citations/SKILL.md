@@ -20,7 +20,7 @@ description: >-
 
 ## Inputs
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me verify-citations` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me verify-citations` first.
 
 - **Target document** — the draft to verify (e.g., `DRAFT - Response to Summons.docx`, `Submission.pdf`).
 - **Sources** — the documents in the project directory that the draft cites: description and claims, D-documents, OAs and Summons. If a cited source is not in the project, ask for it; never verify against memory.

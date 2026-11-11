@@ -35,7 +35,7 @@ If the user asks for any of these, deliver the clarity assessment first, then an
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me check-art-84-epc` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me check-art-84-epc` first.
 
 1. **The claim(s) to be assessed** — required, and sufficient on their own. If no claim text is given, ask for it; if only a publication number is given, ask for the claim text and do not search the web unless the user explicitly authorises it. If several claim sets are supplied, ask which one to use.
 2. **The description and figures** — optional; do not ask for them. If supplied, consult them when interpreting the claims: read each term as the skilled person would in light of the description and drawings (G 1/24; Guidelines F-IV, 4.2). They cannot cure wording that is unclear in itself: a term with no clear meaning in the claim remains a clarity defect even if the description explains it, and the fix is to amend the claim. Do not read limitations from the description into the claim.

@@ -60,7 +60,7 @@ The bundle groups into three kinds. **Checks** (`check-*` and `verify-citations`
 | Skill | Purpose |
 | :--- | :--- |
 | [`show-help`](skills/misc/show-help/) | Brief help on any skill or agent of the library, or answers to questions about it (e.g. which skills are trainable); command only |
-| [`learn`](skills/learn/) | Records your corrections and preferences from a session as learned rules of a trainable skill (see *Learned rules*); command only |
+| [`learn`](skills/misc/learn/) | Records your corrections and preferences from a session as learned rules of a trainable skill (see *Learned rules*); command only |
 | [`show-context`](skills/misc/show-context/) | Session context usage — computed in Antigravity; in Claude Code it points to the built-in `/context`; command only |
 | [`grill-me`](skills/misc/grill-me/) | Interviews the attorney, one question at a time, until the documents, goals and facts needed for a task are clear; ends with a confirmed case brief. Other skills suggest it when their input is insufficient; command only |
 
@@ -145,7 +145,7 @@ Claude also selects a subagent automatically when a request matches its `descrip
 | `.claude-plugin/plugin.json` | Claude Code / Claude Cowork |
 | `.claude-plugin/marketplace.json` | Claude Code / Claude Cowork — lists this repo as marketplace `ep-skills` |
 
-Skills sit in `skills/<name>/`, or in a group folder that both `plugin.json` files list under `skills` (today `skills/application/` for `check-prefiling`, `skills/check/` for the `check-art-*` skills, `skills/claims/` for `check-claim-formalities-epc`, `suggest-claim-reduction` and `suggest-claim-dependencies`, `skills/lang/` for `translate-en-de`, `verify-en-de-translation` and `rewrite`, `skills/misc/` for `show-help`, `grill-me`, `show-context` and `verify-citations`, `skills/oa/` for `analyze-oa`, `draft-oa-summary`, `suggest-oa-response-strategies`, `draft-oa-response`, `examine-draft-response` and `compute-time-limit-epc`, and `skills/util/` for `read-pdf` and `handle-docx`); a group goes exactly one level deep.
+Every skill sits in a group folder `skills/<group>/<name>/` that both `plugin.json` files list under `skills` (today `skills/application/` for `check-prefiling`, `skills/check/` for the `check-art-*` skills, `skills/claims/` for `check-claim-formalities-epc`, `suggest-claim-reduction` and `suggest-claim-dependencies`, `skills/lang/` for `translate-en-de`, `verify-en-de-translation` and `rewrite`, `skills/misc/` for `show-help`, `learn`, `grill-me`, `show-context` and `verify-citations`, `skills/oa/` for `analyze-oa`, `draft-oa-summary`, `suggest-oa-response-strategies`, `draft-oa-response`, `examine-draft-response` and `compute-time-limit-epc`, and `skills/util/` for `read-pdf` and `handle-docx`); a group goes exactly one level deep. The skills follow the Agent Skills format (<https://agentskills.io/specification>).
 
 The two `plugin.json` files must stay byte-identical; neither host reads the other's copy, so a version bump in only one diverges silently. A `pre-commit` hook in `.githooks/` (distinct from `hooks/`, which Claude reserves for `hooks/hooks.json`) blocks a commit if the staged manifests differ or only one is tracked, and if a skill's working protocol differs from its master. Activate it once per clone:
 

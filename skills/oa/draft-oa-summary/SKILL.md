@@ -32,7 +32,7 @@ If the user asks for any of these, deliver the summary first, then answer the ou
 
 ## Inputs
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me draft-oa-summary` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me draft-oa-summary` first.
 
 - **The Office Action / EESR** — a path or pasted text from the user; otherwise search the project directory for filenames containing `OA` or `EESR` (case-insensitive). One match: use it. Several: list them and ask. None: say what was searched for and ask. If the directory is clearly not a case folder, say so.
 - **The template** — `assets/output-template.md` in this skill's directory. If it is missing, stop and report it; do not improvise a structure.

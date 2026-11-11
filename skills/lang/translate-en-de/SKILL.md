@@ -30,7 +30,7 @@ Out of scope: checking an existing translation (use `/verify-en-de-translation`)
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me translate-en-de` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me translate-en-de` first.
 
 1. **Source text** — required. If the argument is an existing file, read it (`.docx` with the `handle-docx` skill, `.pdf` with the `read-pdf` skill; reflow PDF paragraphs and say if the structure could not be recovered); otherwise it is the text itself. If ambiguous, ask once. If the text is not English, say so and stop.
 2. **Glossary or reference translation** — optional (client glossary, parent application, published claim translations). If supplied, its term choices are **binding**.

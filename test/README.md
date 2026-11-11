@@ -34,18 +34,18 @@ test/
   requirements.txt          pytest, pyyaml, google-genai, anthropic
   runner.py                 the model seam: generate(...) dispatches to Gemini or Claude
   gates.py                  the deterministic gates (the only grading step)
-  skilltest.py              discovery + SKILL.md loading helpers
+  skilltest.py              discovery, SKILL.md loading, and the eval test (gate_test)
   <skill-name>/             one folder per skill under test
-    test_<skill>.py         a GATE_PROFILE + parametrized run over cases/
+    test_<skill>.py         a GATE_PROFILE + one line: test_gates = gate_test(__file__, GATE_PROFILE)
     cases/
       NN-<label>/           one scenario
         input.md            what a user would supply
         expected.yaml       the gate assertions
 ```
 
-The scenarios test skills that live elsewhere (`../skills/<name>/`). Each test
-file finds its skill via `skilltest.skill_dir_for()`, which maps the suite folder
-`test/<name>/` to `skills/<name>/` — no hard-coded paths.
+The scenarios test skills that live elsewhere (`../skills/<group>/<name>/`). Each
+suite finds its skill via `skilltest.skill_dir_for()`, which maps the suite folder
+`test/<name>/` to `skills/<group>/<name>/` — no hard-coded paths.
 
 Because `test/` sits **outside** `skills/`, `agents/`, and every other directory
 the plugin loader reads, it is inert in production by construction: the loader
@@ -221,15 +221,15 @@ From inside this `test/` directory:
 
 1. `mkdir <skill-name>` and add a `cases/` folder inside it.
 2. Copy `check-art-54-epc/test_check_54.py` to `<skill-name>/test_<skill>.py`.
-   It needs no path edits — `skill_dir_for(__file__)` derives the skill from the
-   folder name.
+   It needs no path edits — `gate_test(__file__, …)` derives the skill and its
+   scenarios from the folder name.
 3. Rewrite its `GATE_PROFILE` for the new skill: set `skill` to the invocation
    name, `structure` to the regex markers that skill's output must contain (read
    its `SKILL.md` Output Format), and `drift` to any phrases it must never emit.
 4. Write the scenarios under `cases/`.
 
 The `<skill-name>` folder must match the skill's directory name under
-`../skills/`, since that is how `skill_dir_for()` locates the skill.
+`../skills/<group>/`, since that is how `skill_dir_for()` locates the skill.
 
 The `runner.py` / `gates.py` / `skilltest.py` code is shared and reused unchanged;
 only the `GATE_PROFILE` and the scenarios are per-skill. See `check-art-123-2-epc/`

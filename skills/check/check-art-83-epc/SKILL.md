@@ -29,7 +29,7 @@ If the user asks for any of these, deliver the sufficiency assessment first, the
 
 ## Inputs to gather
 
-> **Insufficient input → `/grill-me`.** A single missing file is simply asked for, as described below. If the input is otherwise not sufficient to execute this skill reliably — goals, strategy or key facts unclear, several documents or answers missing, or the next step would rest on a guess — do not guess and do not proceed on assumptions. Say what is missing and suggest that the user run `/grill-me check-art-83-epc` first to settle it, then re-run this skill.
+> **Insufficient input.** Ask for a single missing file, as described below. If more is missing or the goal is unclear, do not guess: say what is missing and suggest `/grill-me check-art-83-epc` first.
 
 1. **The claim(s).** If none are named, assess all independent claims; ask before extending to dependent claims.
 2. **The description** — mandatory. If only claims are given, ask for the description and do not assess: sufficiency cannot be assessed from the claims alone. Never invent description content.

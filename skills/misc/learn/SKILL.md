@@ -24,7 +24,7 @@ This skill turns the user's corrections and preferences from the current session
 ## Step 1 — Identify and validate the target skill
 
 1. Take the skill name from the argument (`/learn draft-oa-summary`). If none is given, infer it from the skill used in the session, or ask.
-2. Locate the skill directory, using the first match: `../<skill_name>/` or `../*/<skill_name>/` (a skill in a group folder such as `check/`) next to this skill's directory (this plugin); `.claude/skills/<skill_name>/` in the working directory; `~/.claude/skills/<skill_name>/`. If several match, list them and ask; if none, say where you looked and stop.
+2. Locate the skill directory, using the first match: `../<skill_name>/` or `../../*/<skill_name>/` relative to this skill's directory (this plugin: the same or another group folder such as `check/`); `.claude/skills/<skill_name>/` in the working directory; `~/.claude/skills/<skill_name>/`. If several match, list them and ask; if none, say where you looked and stop.
 3. The skill must be trainable: `trainable: true` in its frontmatter. Otherwise stop: *"Skill `<skill_name>` is not marked as trainable. To enable learning for this skill, add `trainable: true` to its `SKILL.md` frontmatter."*
 
 ## Step 2 — Extract candidate rules
