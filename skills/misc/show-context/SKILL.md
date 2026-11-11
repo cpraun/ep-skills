@@ -2,7 +2,7 @@
 name: show-context
 description: >-
   Report context usage of the current session. In Antigravity: transcript size,
-  estimated tokens, model limit, workspace, skills, MCP servers, files. In
+  estimated tokens, workspace, skills, MCP servers, files. In
   Claude Code: points to the built-in /context command.
 disable-model-invocation: true
 ---

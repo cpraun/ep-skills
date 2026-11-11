@@ -1,5 +1,5 @@
-# Sample file. Fill in your API keys and set a model provider and respetive model. 
-# This file should then be renamed from env_samle.sh to env.sh
+# Sample file. Fill in your API keys and set a model provider and the respective model.
+# Then rename this file from env_sample.sh to env.sh
 #
 # Fill in your key below, then load it (from inside test/):  source ./env.sh
 # It is meant to be *sourced*, not executed.

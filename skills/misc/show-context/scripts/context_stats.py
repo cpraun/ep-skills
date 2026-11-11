@@ -1,25 +1,21 @@
 #!/usr/bin/env python3
 """
-Helper script to calculate context usage, transcript size, token estimates,
-and model limits for Antigravity sessions.
+Helper script to calculate context usage, transcript size and token estimates
+for Antigravity sessions.
+
+Usage:
+    context_stats.py --host
+    context_stats.py <conversation_id> [context_limit_tokens]
+
+The usage percentage is reported only if the model's context limit is given;
+the script holds no table of model limits, because such a table goes stale.
 """
 
 import json
 import os
 import sys
 
-MODEL_LIMITS = {
-    "gemini 3.7 flash": 1048576,
-    "gemini 3.7 pro": 1048576,
-    "gemini 1.5 pro": 2097152,
-    "gemini 1.5 flash": 1048576,
-    "claude 3.7 sonnet": 200000,
-    "claude 3.5 sonnet": 200000,
-    "claude 3.5 haiku": 200000,
-    "gpt-4o": 128000,
-}
-
-def analyze_context(conv_id, model_name="Gemini 3.7 Flash"):
+def analyze_context(conv_id, limit=None):
     app_data = os.path.expanduser("~/.gemini/antigravity")
     transcript_path = os.path.join(app_data, "brain", conv_id, ".system_generated/logs/transcript.jsonl")
 
@@ -55,14 +51,7 @@ def analyze_context(conv_id, model_name="Gemini 3.7 Flash"):
     # Heuristic: ~4 characters per token
     estimated_tokens = total_chars // 4
 
-    norm_model = model_name.lower().strip()
-    limit = 1048576  # default 1M
-    for k, v in MODEL_LIMITS.items():
-        if k in norm_model:
-            limit = v
-            break
-
-    usage_pct = (estimated_tokens / limit) * 100.0
+    usage_pct = (estimated_tokens / limit) * 100.0 if limit else None
 
     return {
         "transcript_path": transcript_path,
@@ -92,9 +81,9 @@ if __name__ == "__main__":
         print(detect_host())
         sys.exit(0)
     cid = sys.argv[1] if len(sys.argv) > 1 else ""
-    mname = sys.argv[2] if len(sys.argv) > 2 else "Gemini 3.7 Flash"
+    limit = int(sys.argv[2]) if len(sys.argv) > 2 and sys.argv[2].isdigit() else None
     if not cid:
-        print("Usage: context_stats.py <conversation_id> [model_name]")
+        print("Usage: context_stats.py <conversation_id> [context_limit_tokens]")
         sys.exit(1)
-    res = analyze_context(cid, mname)
+    res = analyze_context(cid, limit)
     print(json.dumps(res, indent=2))

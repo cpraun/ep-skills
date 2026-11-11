@@ -29,9 +29,9 @@ entirely in `runner.py`; gates and scenarios are provider-agnostic.
 test/
   README.md                 this file
   pytest.ini                makes test/ the pytest rootdir; pythonpath = .
-  env_sample.sh             sample to specify environment variables should be completed by he user and renamed to env.sh
+  env_sample.sh             sample for the environment variables; complete it and rename it to env.sh
   conftest.py               registers the --show-model-output flag
-  requirements.txt          pytest, pyyaml, google-genai, anthropic
+  requirements.txt          pytest, pyyaml, google-genai, anthropic, python-docx
   runner.py                 the model seam: generate(...) dispatches to Gemini or Claude
   gates.py                  the deterministic gates (the only grading step)
   skilltest.py              discovery, SKILL.md loading, and the eval test (gate_test)

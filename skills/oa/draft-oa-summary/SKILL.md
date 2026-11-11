@@ -43,7 +43,7 @@ If the user asks for any of these, deliver the summary first, then answer the ou
 
 1. **Read the template first.** Keep its sections, order and letter style; do not add or remove sections.
 2. **Read the Office Action.**
-3. **Fill every placeholder** from the OA. Where only the attorney or client can supply the answer, write `[TBD: <what needs to be confirmed>]`. Compute every date (response deadline, R. 132 extension, R. 135 window, R. 116 final date, Art. 108 periods) with `compute-time-limit-epc` (its `SKILL.md`) — anchor = date the document bears, no 10-day fiction — and give the legal-basis trail in a short footnote.
+3. **Fill every placeholder** from the OA. Where only the attorney or client can supply the answer, write `[TBD: <what needs to be confirmed>]`. Compute every date (response deadline, R. 132 extension, R. 135 window, R. 116 final date, Art. 108 periods) with the skill `compute-time-limit-epc` (load it) — anchor = date the document bears, no 10-day fiction — and give the legal-basis trail in a short footnote.
 4. **Quote the Examiner verbatim** where the attorney must address the wording. Do not invent prior art or facts.
 
 ## Output

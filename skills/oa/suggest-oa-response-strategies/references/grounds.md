@@ -1,6 +1,6 @@
 # Ground-specific standards
 
-Part of the `suggest-oa-response-strategies` skill. Read the section for every ground the Examiner raised, before Phase 1. For each ground, read the named skill's `SKILL.md` (and its bundled references) and apply its standard; do not paraphrase the law from memory. Use the skills internally — do not produce a separate deliverable per ground.
+Part of the `suggest-oa-response-strategies` skill. Read the section for every ground the Examiner raised, before Phase 1. For each ground, load the named skill and apply its standard; do not paraphrase the law from memory. Use the skills internally — do not produce a separate deliverable per ground.
 
 ## Contents
 - Art. 54 — novelty
