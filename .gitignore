@@ -9,10 +9,10 @@ __pycache__/
 # Local secrets for the test harness — holds the Gemini API key, never commit
 test/env.sh
 
-# User-specific Word template of the handle-docx skill (see skills/util/handle-docx/assets/CUSTOMIZE.txt)
+# Old location of the user's Word template (now ~/.ep-skills/template.docx); kept as a safeguard
 skills/util/handle-docx/assets/template.docx
 
-# Learned rules are personal to each user and may contain case details; built locally via /learn
+# Old location of learned rules (now ~/.ep-skills/learned/); they may contain case details
 skills/**/LEARNED.md
 
 # Local citation test cases with real case material (see test/verify-citations/cases/README.md)

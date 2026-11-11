@@ -44,7 +44,7 @@ Use a path or pasted text from the user, otherwise search the project directory 
 
 ## Method
 
-**Learned rules first.** Before starting, read [LEARNED.md](./LEARNED.md) in this skill directory, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill (EPC requirements, Art. 123(2) EPC basis, citation discipline); if a learned rule conflicts with one, follow this file and tell the user.
+**Learned rules first.** Read `~/.ep-skills/learned/suggest-oa-response-strategies.md`, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill; if one conflicts, follow this file and tell the user. If the file cannot be read, continue without it.
 
 Before Phase 1, read `references/grounds.md` in this skill's directory for every ground the Examiner raised. It names the `check-*` skill whose standard applies, the criteria for the merit verdict, the argument lines and the checks each amendment must pass.
 

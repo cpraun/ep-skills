@@ -39,7 +39,7 @@ If the user asks for any of these, deliver the summary first, then answer the ou
 
 ## Procedure
 
-**Learned rules first.** Before starting, read [LEARNED.md](./LEARNED.md) in this skill directory, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill (EPC requirements, Art. 123(2) EPC basis, citation discipline); if a learned rule conflicts with one, follow this file and tell the user.
+**Learned rules first.** Read `~/.ep-skills/learned/draft-oa-summary.md`, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill; if one conflicts, follow this file and tell the user. If the file cannot be read, continue without it.
 
 1. **Read the template first.** Keep its sections, order and letter style; do not add or remove sections.
 2. **Read the Office Action.**

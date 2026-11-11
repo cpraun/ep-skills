@@ -52,7 +52,7 @@ Each skill states its own out-of-scope cases and names the skill to use instead.
 | **Network** | None from skills or bundled scripts. The agents `patent-assistant` and `patent-examiner` have `WebFetch`; `patent-examiner` is instructed to use it only to verify citations on epo.org, never to look for prior art. `patent-assistant` is instructed to work from the cited documents and not to introduce further prior art unless asked. |
 | **Commands** | `patent-examiner` has `Bash` and is instructed to run only the scripts of `read-pdf` and `handle-docx` and never to create, change or delete files (an instruction, not a technical restriction). The scripts run locally (poppler, tesseract, python-docx). |
 | **Hooks, MCP servers** | None. |
-| **Personal data on disk** | `LEARNED.md` files (from `/learn`) and your own Word template stay in the plugin folder and are excluded from git. |
+| **Personal data on disk** | Learned rules (from `/learn`, in `~/.ep-skills/learned/`) and your own Word template (`~/.ep-skills/template.docx`) lie in your home directory, outside the plugin folder; a plugin update does not remove them. |
 
 `patent-examiner` does not see your conversation; give it explicit paths to the claims, the application as filed and each D-document.
 

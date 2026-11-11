@@ -23,7 +23,7 @@ Act as a European patent attorney reviewing a draft application before it is fil
 
 Do not assume where the draft comes from or what technology it concerns. Determine both from the text (Step 3) and apply origin- or field-specific checks only when they fit.
 
-**Learned rules first.** Before starting, read [LEARNED.md](./LEARNED.md) in this skill directory, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill (EPC requirements, Art. 123(2) EPC basis, citation discipline); if a learned rule conflicts with one, follow this file and tell the user.
+**Learned rules first.** Read `~/.ep-skills/learned/check-prefiling.md`, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill; if one conflicts, follow this file and tell the user. If the file cannot be read, continue without it.
 
 ## Step 1 – Establish the filing situation (ask before proceeding)
 

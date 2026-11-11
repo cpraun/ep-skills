@@ -4,8 +4,8 @@ Unlike the eval suites, these exercise real code: skills/util/handle-docx/script
 docx_helper.py, on real .docx files built in a temporary directory. They check the
 skill's two guarantees that can be verified mechanically:
 
-- template selection — template.docx if present, else template-sample.docx, else
-  a blank document (SKILL.md "Opening a document");
+- template selection — the user's template (~/.ep-skills/template.docx) if present,
+  else template-sample.docx, else a blank document (SKILL.md "Opening a document");
 - formatting preservation — replacements and insertions keep the run formatting
   of the original text (SKILL.md guiding principle and "Editing").
 
@@ -57,27 +57,27 @@ def test_customize_note_ships_with_the_skill():
 
 
 def test_user_template_is_preferred(tmp_path):
-    _marked_doc(tmp_path / "template.docx", "USER TEMPLATE")
+    user = _marked_doc(tmp_path / "template.docx", "USER TEMPLATE")
     _marked_doc(tmp_path / "template-sample.docx", "SAMPLE TEMPLATE")
-    d = h.load_document(template_dir=str(tmp_path))
+    d = h.load_document(user_template=str(user), template_dir=str(tmp_path))
     assert d.paragraphs[0].text == "USER TEMPLATE"
 
 
 def test_sample_template_is_the_fallback(tmp_path):
     _marked_doc(tmp_path / "template-sample.docx", "SAMPLE TEMPLATE")
-    d = h.load_document(template_dir=str(tmp_path))
+    d = h.load_document(user_template=str(tmp_path / "none.docx"), template_dir=str(tmp_path))
     assert d.paragraphs[0].text == "SAMPLE TEMPLATE"
 
 
 def test_blank_document_when_no_template(tmp_path):
-    d = h.load_document(template_dir=str(tmp_path))
+    d = h.load_document(user_template=str(tmp_path / "none.docx"), template_dir=str(tmp_path))
     assert not any(p.text for p in d.paragraphs)
 
 
 def test_existing_input_file_beats_any_template(tmp_path):
-    _marked_doc(tmp_path / "template.docx", "USER TEMPLATE")
+    user = _marked_doc(tmp_path / "template.docx", "USER TEMPLATE")
     src = _marked_doc(tmp_path / "letter.docx", "ORIGINAL LETTER")
-    d = h.load_document(input_path=str(src), template_dir=str(tmp_path))
+    d = h.load_document(input_path=str(src), user_template=str(user), template_dir=str(tmp_path))
     assert d.paragraphs[0].text == "ORIGINAL LETTER"
 
 

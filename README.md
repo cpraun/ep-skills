@@ -69,21 +69,21 @@ The bundle groups into three kinds. **Checks** (`check-*` and `verify-citations`
 | Skill | Purpose |
 | :--- | :--- |
 | [`read-pdf`](skills/util/read-pdf/) | Read-only PDF text extraction (text layer or OCR via local poppler/tesseract) with page:line and paragraph locations for exact citations |
-| [`handle-docx`](skills/util/handle-docx/) | Create and edit Word (.docx) files while preserving the original formatting; new files from your own `assets/template.docx` (git-ignored) or the shipped `template-sample.docx` |
+| [`handle-docx`](skills/util/handle-docx/) | Create and edit Word (.docx) files while preserving the original formatting; new files from your own template `~/.ep-skills/template.docx` or the shipped `template-sample.docx` |
 
 Both are loaded only when a PDF or Word file is involved: when you refer to one, or when `translate-en-de`, `verify-en-de-translation`, `verify-citations`, `grill-me`, `rewrite` and `examine-draft-response` load them to read Word and PDF files.
 
 ### Learned rules
 
-Skills marked `trainable: true` (`analyze-oa`, `draft-oa-summary`, `draft-oa-response`, `suggest-oa-response-strategies`, `check-prefiling`, `translate-en-de`, `grill-me`) read a `LEARNED.md` in their folder, if present, and apply your recorded preferences — style, wording, layout, priorities — but never in place of a legal rule or safeguard. `/learn <skill>` writes these rules after you select them. `LEARNED.md` files are personal and may contain case details, so they are excluded from git (`.gitignore`); each user builds their own. `/show-help which skills can learn?` lists the trainable skills and their rule counts.
+Skills marked `trainable: true` (`analyze-oa`, `draft-oa-summary`, `draft-oa-response`, `suggest-oa-response-strategies`, `check-prefiling`, `translate-en-de`, `grill-me`) read `~/.ep-skills/learned/<skill>.md`, if present, and apply your recorded preferences — style, wording, layout, priorities — but never in place of a legal rule or safeguard. `/learn <skill>` writes these rules after you select them. The files are personal and may contain case details. They lie in your home directory, outside the plugin folder, so a plugin update does not remove them; each user builds their own. `/show-help which skills can learn?` lists the trainable skills and their rule counts.
 
 ## Requirements
 
 - **Claude Code / Claude Cowork** or **Google Antigravity**.
 - **Python 3** for the bundled helper scripts.
 - For `read-pdf` (macOS/Linux via Homebrew): `brew install poppler tesseract`, plus `brew install tesseract-lang` for OCR of German, French and other non-English documents.
-- For `handle-docx`: `pip install python-docx`. Optionally place your own Word template at `skills/util/handle-docx/assets/template.docx` (excluded from git; see `assets/CUSTOMIZE.txt`).
-- Antigravity, to run the `read-pdf` / `handle-docx` tools and use `.antigravity_tmp/` without approval prompts: add these entries to the allow list (App: Settings > Global Permissions; CLI: `permissions.allow` in `~/.gemini/antigravity-cli/settings.json`):
+- For `handle-docx`: `pip install python-docx`. Optionally save your own Word template as `~/.ep-skills/template.docx` (outside the plugin folder, so a plugin update keeps it).
+- Antigravity, to run the `read-pdf` / `handle-docx` tools and use `.antigravity_tmp/` and your personal folder `~/.ep-skills/` without approval prompts: add these entries to the allow list (App: Settings > Global Permissions; CLI: `permissions.allow` in `~/.gemini/antigravity-cli/settings.json`):
 
   ```text
   command(regex:python3 \S*/read-pdf/scripts/pdf_extract\.py( .*)?)
@@ -92,7 +92,10 @@ Skills marked `trainable: true` (`analyze-oa`, `draft-oa-summary`, `draft-oa-res
   command(pdftoppm)
   command(tesseract)
   write_file(.antigravity_tmp/)
+  write_file(/Users/<you>/.ep-skills/)
   ```
+
+  Give the last entry as the absolute path of the folder `.ep-skills` in your home directory.
 
   Running `handle-docx` code means running Python the agent writes itself, which an allow-list entry can only permit broadly (`command(python3)`); decide whether you want that.
 

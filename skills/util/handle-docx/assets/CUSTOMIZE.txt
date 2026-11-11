@@ -1,6 +1,8 @@
-Add a file "template.docx" to this folder and customise it to your own needs
-(letterhead, fonts, styles, margins, headers and footers).
+To use your own Word template (letterhead, fonts, styles, margins, headers and
+footers), save it as
 
-The handle-docx skill uses template.docx when it exists, otherwise template-sample.docx.
-template.docx is excluded from git (.gitignore), so it may contain firm- or
-user-specific content.
+    ~/.ep-skills/template.docx
+
+(the folder ".ep-skills" in your home directory). The handle-docx skill uses it
+when it exists, otherwise template-sample.docx from this folder. The file lies
+outside the plugin folder, so a plugin update does not remove it.

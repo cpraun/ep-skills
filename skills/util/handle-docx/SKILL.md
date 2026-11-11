@@ -25,7 +25,7 @@ Create and edit Word (`.docx`) files with `python-docx` and `lxml`, preserving f
 
 - **Editing an existing file:** `docx.Document(input_path)`.
 - **New file based on another Word file:** load that file, not the template, and save under a new name.
-- **New file from scratch:** use, in this order, a template path from the user; `assets/template.docx` (the user's own template, git-ignored); `assets/template-sample.docx`. `load_document()` implements this order. If `template.docx` is missing, say once that the sample was used and that a customised template can be added (see `assets/CUSTOMIZE.txt`).
+- **New file from scratch:** use, in this order, a template path from the user; `~/.ep-skills/template.docx` (the user's own template); `assets/template-sample.docx`. `load_document()` implements this order. If the user's template is missing, say once that the sample was used and that a customised template can be added (see `assets/CUSTOMIZE.txt`).
 
 ## Editing
 

@@ -28,7 +28,7 @@ Optional: a **skill name** (`/grill-me draft-oa-response`), a **free description
 
 ## Method
 
-**Learned rules first.** Before starting, read [LEARNED.md](./LEARNED.md) in this skill directory, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill (EPC requirements, Art. 123(2) EPC basis, citation discipline); if a learned rule conflicts with one, follow this file and tell the user.
+**Learned rules first.** Read `~/.ep-skills/learned/grill-me.md`, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill; if one conflicts, follow this file and tell the user. If the file cannot be read, continue without it.
 
 1. **Take stock first.** Read the conversation, the files the user named, and plainly relevant files in the working directory (OA, claims, application as filed, D-documents, strategy notes; PDFs with the `read-pdf` skill). Never ask for what is already in front of you or what the files can tell you.
 2. **List the gaps** privately, using the row for the task in `references/checklist.md` in this skill's directory. Order them by how much the answer would change the work: a missing document or goal outranks a style preference.

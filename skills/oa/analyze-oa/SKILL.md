@@ -46,7 +46,7 @@ For any other optional document that is missing, proceed and flag the gap in §9
 
 ## Method
 
-**Learned rules first.** Before starting, read [LEARNED.md](./LEARNED.md) in this skill directory, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill (EPC requirements, Art. 123(2) EPC basis, citation discipline); if a learned rule conflicts with one, follow this file and tell the user.
+**Learned rules first.** Read `~/.ep-skills/learned/analyze-oa.md`, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill; if one conflicts, follow this file and tell the user. If the file cannot be read, continue without it.
 
 1. **Read the OA end to end.** Keep the Examiner's own item numbers (1., 2.1, …) everywhere, so the attorney can read the analysis next to the OA. Extract per item: legal basis, challenged claims, cited D-documents with the exact passages, and the Examiner's reasoning, quoted verbatim where the wording matters. Note the procedural data: language, Examining Division, summons details.
 2. **Compute the response deadline** with `compute-time-limit-epc` (its `SKILL.md`): the anchor is the date the OA bears, with no 10-day fiction. If the OA does not state the period, infer it from the legal basis and flag the inference in §9. The deadline line in §1 is mandatory: never blank, never "not stated in OA".

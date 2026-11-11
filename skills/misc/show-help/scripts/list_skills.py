@@ -18,6 +18,7 @@ import sys
 from pathlib import Path
 
 SKILLS_DIR = Path(__file__).resolve().parents[3]
+LEARNED_DIR = Path.home() / ".ep-skills" / "learned"   # written by the learn skill
 AGENTS_DIR = SKILLS_DIR.parent / "agents"
 
 
@@ -43,12 +44,13 @@ def skills():
     found = [*SKILLS_DIR.glob("*/SKILL.md"), *SKILLS_DIR.glob("*/*/SKILL.md")]
     for p in sorted(found, key=lambda p: p.parent.name):
         fm = frontmatter(p.read_text(encoding="utf-8"))
-        learned = p.parent / "LEARNED.md"
+        name = fm.get("name", p.parent.name)
+        learned = LEARNED_DIR / f"{name}.md"
         yield {
             "kind": "skill",
-            "name": fm.get("name", p.parent.name),
+            "name": name,
             "description": fm.get("description", ""),
-            "trainable": fm.get("trainable") == "true" or learned.exists(),
+            "trainable": fm.get("trainable") == "true",
             "learned_rules": learned.read_text(encoding="utf-8").count("\n### [") if learned.exists() else 0,
             "command_only": fm.get("disable-model-invocation") == "true",
             "path": str(p.relative_to(SKILLS_DIR.parent)),

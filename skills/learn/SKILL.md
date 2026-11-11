@@ -1,7 +1,7 @@
 ---
 name: learn
 description: >-
-  Record lessons, user corrections and heuristics from the session in a trainable skill's LEARNED.md, after the user selects which. Invoked as /learn <skill-name>.
+  Record lessons, user corrections and heuristics from the session as learned rules of a trainable skill (in ~/.ep-skills/learned/), after the user selects which. Invoked as /learn <skill-name>.
 disable-model-invocation: true
 ---
 
@@ -19,13 +19,13 @@ disable-model-invocation: true
 - This skill's output format takes precedence over this protocol.
 <!-- protocol:end -->
 
-This skill turns the user's corrections and preferences from the current session into rules in a trainable skill's `LEARNED.md`, after the user has selected which ones to record. It never edits the target skill's `SKILL.md`.
+This skill turns the user's corrections and preferences from the current session into learned rules of a trainable skill, after the user has selected which ones to record. The rules of a skill of this plugin are kept in `~/.ep-skills/learned/<skill_name>.md`, outside the plugin folder, so a plugin update does not remove them. It never edits the target skill's `SKILL.md`.
 
 ## Step 1 — Identify and validate the target skill
 
 1. Take the skill name from the argument (`/learn draft-oa-summary`). If none is given, infer it from the skill used in the session, or ask.
-2. Locate the skill directory, using the first match: `../<skill_name>/` or `../*/<skill_name>/` (a skill in a group folder such as `check/`) next to this skill's directory (this plugin); `.claude/skills/<skill_name>/` in the working directory; `~/.claude/skills/<skill_name>/`; `~/.claude/plugins/**/skills/<skill_name>/`. If several match, list them and ask; if none, say where you looked and stop. If the match is inside `~/.claude/plugins/cache/…` or `~/.claude/plugins/synced/…`, warn first: a plugin update may replace that directory and lose the rules.
-3. The skill must be trainable: `trainable: true` in its frontmatter, or an existing `LEARNED.md`. Otherwise stop: *"Skill `<skill_name>` is not marked as trainable. To enable learning for this skill, add `trainable: true` to its `SKILL.md` frontmatter."*
+2. Locate the skill directory, using the first match: `../<skill_name>/` or `../*/<skill_name>/` (a skill in a group folder such as `check/`) next to this skill's directory (this plugin); `.claude/skills/<skill_name>/` in the working directory; `~/.claude/skills/<skill_name>/`. If several match, list them and ask; if none, say where you looked and stop.
+3. The skill must be trainable: `trainable: true` in its frontmatter. Otherwise stop: *"Skill `<skill_name>` is not marked as trainable. To enable learning for this skill, add `trainable: true` to its `SKILL.md` frontmatter."*
 
 ## Step 2 — Extract candidate rules
 
@@ -47,10 +47,13 @@ Split the feedback into atomic, independent rules (formatting separate from lega
 
 Show every candidate in full, numbered. Then ask with AskUserQuestion (`multiSelect: true`): *"Which of these candidate lessons should be recorded for `<skill_name>`?"*, one option per aspect (`Aspect 1: <Short Title>`, "(Recommended)" where you recommend it). The tool allows 4 options per question and 4 questions per call; split larger sets. Selecting nothing or answering "none" cancels. Without the tool, accept a plain-text answer ("1 and 3", "all", "none").
 
-## Step 4 — Update `LEARNED.md`
+## Step 4 — Update the rules file
+
+The rules file is `~/.ep-skills/learned/<skill_name>.md` for a skill of this plugin, and `LEARNED.md` in the skill's own folder for a project or user skill.
 
 - **Cancel:** confirm that nothing was changed.
-- **Selection:** if `LEARNED.md` does not exist, create it with:
+- **Old location:** if a skill of this plugin still has a `LEARNED.md` in its folder and the rules file does not exist, move that file's content to the rules file first and tell the user.
+- **Selection:** if the rules file does not exist, create it (and the folder) with:
 
   ```markdown
   # Learned Rules & User Preferences: <skill_name>

@@ -12,23 +12,23 @@ from docx.oxml.ns import qn
 
 
 ASSETS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets")
+# The user's own template lives outside the plugin folder, so a plugin update keeps it.
+USER_TEMPLATE = os.path.join(os.path.expanduser("~"), ".ep-skills", "template.docx")
 
 
-def load_document(input_path=None, template_dir=ASSETS_DIR,
-                  template_names=("template.docx", "template-sample.docx")):
+def load_document(input_path=None, user_template=USER_TEMPLATE, template_dir=ASSETS_DIR):
     """
-    Loads an existing Word document, falls back to the skill's asset template
-    (the user's template.docx if present, else template-sample.docx), or
+    Loads an existing Word document, falls back to the user's own template
+    (~/.ep-skills/template.docx), else to the shipped template-sample.docx, or
     initializes a blank document.
     """
     if input_path and os.path.exists(input_path):
         return docx.Document(input_path)
 
-    for name in template_names:
-        default_template = os.path.join(template_dir, name)
-        if os.path.exists(default_template):
-            return docx.Document(default_template)
-    
+    for template in (user_template, os.path.join(template_dir, "template-sample.docx")):
+        if os.path.exists(template):
+            return docx.Document(template)
+
     return docx.Document()
 
 

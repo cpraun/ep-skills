@@ -39,7 +39,7 @@ python3 <this-skill-dir>/scripts/list_skills.py          # table
 python3 <this-skill-dir>/scripts/list_skills.py --json   # for filtering
 ```
 
-It reports per skill: name, description, whether it is **trainable** (with the number of learned rules in its `LEARNED.md`), whether it is **command only** (`disable-model-invocation: true`), and its path. It reports per agent (`agents/*.md`, `"kind": "agent"` in the JSON): name, description, model, tools, and its path. For help on one skill, also read its `SKILL.md`; for one agent, its agent file.
+It reports per skill: name, description, whether it is **trainable** (with the number of learned rules in `~/.ep-skills/learned/<name>.md`), whether it is **command only** (`disable-model-invocation: true`), and its path. It reports per agent (`agents/*.md`, `"kind": "agent"` in the JSON): name, description, model, tools, and its path. For help on one skill, also read its `SKILL.md`; for one agent, its agent file.
 
 ## Answers
 

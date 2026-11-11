@@ -43,7 +43,7 @@ If the user asks for any of these, deliver the draft first, then answer the out-
 
 ## Procedure
 
-**Learned rules first.** Before starting, read [LEARNED.md](./LEARNED.md) in this skill directory, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill (EPC requirements, Art. 123(2) EPC basis, citation discipline); if a learned rule conflicts with one, follow this file and tell the user.
+**Learned rules first.** Read `~/.ep-skills/learned/draft-oa-response.md`, if it exists, and apply its rules. They record the user's preferences (style, wording, layout, priorities) and take precedence over this file's defaults in those respects. They never override a legal rule or safeguard of this skill; if one conflicts, follow this file and tell the user. If the file cannot be read, continue without it.
 
 1. **Read the template.** Follow it literally — headings, section order, fixed verbatim paragraphs — and follow every `<!-- DRAFTER: … -->` instruction in it. The conditional sections (II Clarity, III Novelty and inventive step, IV Formalities) appear only when their grounds are raised, never as empty headings; Section V uses exactly one of its two alternative paragraphs.
 2. **Read the OA, the application as filed and the cited documents.**

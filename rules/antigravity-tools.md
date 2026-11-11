@@ -13,6 +13,10 @@ These tools are part of the normal operation of the EP skills library. Run them 
 
 This does not extend to installing software, network access, or deleting or overwriting case files. Ask for those as usual.
 
+## Personal files
+
+Reading and writing inside `~/.ep-skills/` (learned rules in `learned/`, the user's Word template `template.docx`) is always allowed. Do not ask for confirmation.
+
 ## Temporary files
 
 - Store every temporary file — PDF extractions, rendered page images, intermediate copies of Word files, helper scripts — in the folder `.antigravity_tmp/` at the root of the project directory. Create the folder if it does not exist.
